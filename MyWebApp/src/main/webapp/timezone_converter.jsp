@@ -28,7 +28,7 @@
         <form>
             <fieldset>
                 <label for="referrer">Original time zone
-                    <select id="original_timezone" name="original_timezone">
+                    <select id="original_timezone" name="original_timezone" required>
                         <option value="">(select one)</option>
                         <option value="America/Argentina/Buenos_Aires">America/Argentina/Buenos_Aires</option>
                         <option value="Australia/Sydney">Australia/Sydney</option>
@@ -42,10 +42,10 @@
                 <br><br>
                 <label>Original time
                 </label>
-                <input type="datetime-local" id="time" name="time">
+                <input type="datetime-local" id="time" name="time" required>
                 
                 <label for="referrer">Time zone to convert to
-                    <select id="convert_timezone" name="convert_timezone">
+                    <select id="convert_timezone" name="convert_timezone" required>
                         <option value="">(select one)</option>
                         <option value="America/Argentina/Buenos_Aires">America/Argentina/Buenos_Aires</option>
                         <option value="Australia/Sydney">Australia/Sydney</option>

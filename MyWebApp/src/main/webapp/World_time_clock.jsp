@@ -16,25 +16,76 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>World time clock</title>
-         <link href="./styles.css" rel="stylesheet">
+        <style>
+            body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background-color: #1b1b32;;
+  color: #f5f6f7;
+  font-family: Tahoma;
+  font-size: 16px;
+}
+
+h1, p, h2 {
+  margin: 1em auto;
+  text-align: center;
+}
+
+#table {
+    margin: auto;
+    margin-top: 50px;
+    width: 40%;
+}
+
+#submit {
+    margin: auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  border-right: 1px solid #bbb;
+}
+
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+        </style>
          <script type="text/javascript" src="js/script.js"></script>
     </head>
+    
+            <ul>
+  <li><a href="index.jsp">Home</a></li>
+  <li><a href="World_time_clock.jsp">World Time Clock</a></li>
+</ul>
     <body class = "overflow-hidden">
         
-         <div class="row bg-dark pt-3 pb-2">
-              
-                    <h3 class="h3 col text-left text-light ms-2"> Welcome 
-                    
-                <h2 class="h2 col text-light text-center"> Time Conversion Home </h2>
-                
-                <div class="col">
-                    <div class="float-end me-2">  
-                          <a href="index.jsp" class="btn btn-dark ms-2"> Homepage</a>
-                         <!-- Jared's parts -->   
-                        <a href="timezone_converter.jsp" class="btn btn-light text-dark ms-2"> Timezone converter </a>
-                    </div>
-                </div>
-         </div>
 
         
         <h1>World time clock</h1>

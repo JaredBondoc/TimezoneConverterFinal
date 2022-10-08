@@ -16,7 +16,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>World time clock</title>
-         <link href="MyWebApp/src/main/webapp/styles.css" rel="stylesheet">
+         <link href="./styles.css" rel="stylesheet">
          <script type="text/javascript" src="js/script.js"></script>
     </head>
     <body class = "overflow-hidden">

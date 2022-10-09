@@ -157,7 +157,7 @@
                                     ZonedDateTime zdt1 = user_converted.atZone(zone1);
                                     //converted time is here
                                     ZonedDateTime zdt2 = zdt1.withZoneSameInstant(zone2);
-                                    //this code makes the output more user friendlly and easy to understand
+                                    //this code makes the output more user friendly and easy to understand
                                     DateTimeFormatter dateTime2 = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm a");
                                     out.println("The converted time in: ");
                                     out.println(zone2);

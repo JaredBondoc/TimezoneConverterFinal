@@ -9,6 +9,7 @@
 <%@ page import="java.time.ZoneId" %>
 <%@ page import="java.time.ZonedDateTime" %>
 <%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 
 
 <html>
@@ -74,9 +75,15 @@ li a:hover {
 .active {
   background-color: #04AA6D;
 }
+
+.messageBox {
+    margin: auto;
+    padding: 10px;
+    font-size: 20px; 
+}
         </style>
         <script type="text/javascript" src="js/script.js"></script>
-        <title>Staff Home Page</title>
+        <title>Time Conversion Home</title>
     </head> 
     
     <body class="overflow-hidden">
@@ -150,8 +157,12 @@ li a:hover {
             ZonedDateTime zdt1 = user_converted.atZone(zone1);
             //converted time is here - now find way to print this one website..
             ZonedDateTime zdt2 = zdt1.withZoneSameInstant(zone2);
-            out.println("The converted time is:");
-            out.println(zdt2);
+            
+            DateTimeFormatter dateTime2 = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm a");
+            out.println("The converted time in: ");
+            out.println(zone2);
+            out.println(" is ");
+            out.println(dateTime2.format(zdt2));
             
             } catch(NullPointerException e) { 
                 System.out.println("NullPointerException thrown!");

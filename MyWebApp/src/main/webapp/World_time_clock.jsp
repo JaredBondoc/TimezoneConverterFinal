@@ -85,6 +85,7 @@
     <ul>
         <li><a href="index.jsp">Home</a></li>
         <li><a href="World_time_clock.jsp">World Time Clock</a></li>
+        <li><a href="calendar.jsp">Calendar</a></li>
     </ul>
     <body class = "overflow-hidden">
 

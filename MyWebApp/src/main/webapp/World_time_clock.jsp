@@ -78,6 +78,8 @@
             .active {
                 background-color: #04AA6D;
             }
+
+            
         </style>
         <script type="text/javascript" src="js/script.js"></script>
     </head>
@@ -85,6 +87,7 @@
     <ul>
         <li><a href="index.jsp">Home</a></li>
         <li><a href="World_time_clock.jsp">World Time Clock</a></li>
+        <li><a href="calendar.jsp">Calendar</a></li>
     </ul>
     <body class = "overflow-hidden">
 

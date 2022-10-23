@@ -132,3 +132,96 @@ function initButtons() {
 
 initButtons();
 load();
+
+const options = document.querySelector('.customize-option');
+const icon = document.querySelector('.customize-icon');
+
+//show the customize options panel clicking the Settings icon
+icon.addEventListener('click',() => {
+    options.classList.toggle('active')
+})
+
+//select all tag that can contain txt
+const allEl = document.querySelectorAll('p,button,h1,h2,h3,h4,h5,h6,span,a');
+
+function reduce(){
+    allEl.forEach(el => {
+        //if the current element does not have a role attribute, then proceed
+        if(el.getAttribute('role') !== 'customize-page'){
+            let elFont = Math.floor(parseFloat(window.getComputedStyle(el, null).getPropertyValue('font-size')));
+            el.style.fontSize = (elFont - 4) + 'px'
+        }
+    })     
+}
+
+function large(){
+    allEl.forEach(el => {
+        if(el.getAttribute('role') !== "customize-page"){
+            let elFont = Math.floor(parseFloat(window.getComputedStyle(el, null).getPropertyValue('font-size')));
+            el.style.fontSize = (elFont + 4) + 'px'
+        }
+    })
+}
+
+function serif(){
+    allEl.forEach(el => {
+        if(el.getAttribute('role') !== 'customize-page'){
+            el.style.fontFamily = 'serif';
+        }
+    })
+}
+function arial(){
+    allEl.forEach(el => {
+        if(el.getAttribute('role') !== 'customize-page'){
+            el.style.fontFamily = 'arial';
+        }
+    })
+}
+function tahoma(){
+    allEl.forEach(el => {
+        if(el.getAttribute('role') !== 'customize-page'){
+            el.style.fontFamily = 'tahoma';
+        }
+    })
+}
+
+function dblue(){
+    //reverse to default
+    document.getElementsByTagName('BODY')[0].style.background = '#1b1b32'
+
+    allEl.forEach(el => {
+        if(el.getAttribute('role') !== 'customize-page'){
+            //select the specific element color
+           let elColor = window.getComputedStyle(el, null).getPropertyValue('color');
+
+           
+        }
+    })
+}
+
+function dark(){
+    //change the body color to black
+    document.getElementsByTagName('BODY')[0].style.background = '#1C1F2B'
+
+    allEl.forEach(el => {
+        if(el.getAttribute('role') !== 'customize-page'){
+            //select the specific element color
+           let elColor = window.getComputedStyle(el, null).getPropertyValue('color');
+
+         
+        }
+    })
+}
+
+function white(){
+    //change the body color to light
+    document.getElementsByTagName('BODY')[0].style.background = '#aaaaaa'
+
+    allEl.forEach(el => {
+        if(el.getAttribute('role') !== 'customize-page'){
+            //select the specific element color
+           let elColor = window.getComputedStyle(el, null).getPropertyValue('color');
+        
+        }
+    })
+}

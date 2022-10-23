@@ -327,6 +327,7 @@
       <div id="calendar"></div>
     </div>
 
+    
     <div id="newEventModal">
       <h2>New Event</h2>
 

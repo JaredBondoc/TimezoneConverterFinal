@@ -9,6 +9,7 @@ const backDrop = document.getElementById('modalBackDrop');
 const eventTitleInput = document.getElementById('eventTitleInput');
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+//Create new modal for event
 function openModal(date) {
   clicked = date;
 
@@ -24,6 +25,7 @@ function openModal(date) {
   backDrop.style.display = 'block';
 }
 
+//Load Date
 function load() {
   const dt = new Date();
 
@@ -81,6 +83,7 @@ function load() {
   }
 }
 
+//Remove Event
 function closeModal() {
   eventTitleInput.classList.remove('error');
   newEventModal.style.display = 'none';
@@ -91,6 +94,7 @@ function closeModal() {
   load();
 }
 
+//Save Event
 function saveEvent() {
   if (eventTitleInput.value) {
     eventTitleInput.classList.remove('error');
@@ -107,12 +111,14 @@ function saveEvent() {
   }
 }
 
+//Delete Event
 function deleteEvent() {
   events = events.filter(e => e.date !== clicked);
   localStorage.setItem('events', JSON.stringify(events));
   closeModal();
 }
 
+//Initialize
 function initButtons() {
   document.getElementById('nextButton').addEventListener('click', () => {
     nav++;
@@ -136,14 +142,15 @@ load();
 const options = document.querySelector('.customize-option');
 const icon = document.querySelector('.customize-icon');
 
-//show the customize options panel clicking the Settings icon
+//Show the customize options panel clicking the Settings icon
 icon.addEventListener('click',() => {
     options.classList.toggle('active')
 })
 
-//select all tag that can contain txt
+//Select all tag that can contain txt
 const allEl = document.querySelectorAll('p,button,h1,h2,h3,h4,h5,h6,span,a');
 
+//Decrease font size
 function reduce(){
     allEl.forEach(el => {
         //if the current element does not have a role attribute, then proceed
@@ -154,6 +161,7 @@ function reduce(){
     })     
 }
 
+//Increase font size
 function large(){
     allEl.forEach(el => {
         if(el.getAttribute('role') !== "customize-page"){
@@ -163,6 +171,8 @@ function large(){
     })
 }
 
+
+//Font style
 function serif(){
     allEl.forEach(el => {
         if(el.getAttribute('role') !== 'customize-page'){
@@ -185,13 +195,14 @@ function tahoma(){
     })
 }
 
+//Background colour
 function dblue(){
-    //reverse to default
+    //Reverse to default
     document.getElementsByTagName('BODY')[0].style.background = '#1b1b32'
 
     allEl.forEach(el => {
         if(el.getAttribute('role') !== 'customize-page'){
-            //select the specific element color
+            //Select the specific element color
            let elColor = window.getComputedStyle(el, null).getPropertyValue('color');
 
            
@@ -200,12 +211,12 @@ function dblue(){
 }
 
 function dark(){
-    //change the body color to black
+    //Change the body color to black
     document.getElementsByTagName('BODY')[0].style.background = '#1C1F2B'
 
     allEl.forEach(el => {
         if(el.getAttribute('role') !== 'customize-page'){
-            //select the specific element color
+            //Select the specific element color
            let elColor = window.getComputedStyle(el, null).getPropertyValue('color');
 
          
@@ -214,12 +225,12 @@ function dark(){
 }
 
 function white(){
-    //change the body color to light
+    //Change the body color to light
     document.getElementsByTagName('BODY')[0].style.background = '#aaaaaa'
 
     allEl.forEach(el => {
         if(el.getAttribute('role') !== 'customize-page'){
-            //select the specific element color
+            //Select the specific element color
            let elColor = window.getComputedStyle(el, null).getPropertyValue('color');
         
         }

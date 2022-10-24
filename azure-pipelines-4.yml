@@ -35,16 +35,6 @@ stages:
       inputs:
         mavenPomFile: 'MyWebApp/pom.xml'
 
-    - task: NodeTool@0
-      displayName: 'Install Node.js'
-      inputs:
-        versionSpec: '16.x'
-
-    - script: |
-        npm install
-        npm run build --if-present
-        npm run test --if-present
-      displayName: 'npm install, build and test' 
 
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
@@ -77,4 +67,4 @@ stages:
               appType: webAppLinux
               appName: $(webAppName)
               package: '$(Pipeline.Workspace)/drop/**/target/*.?(war|jar)'
-              startUpCommand: 'npm run start'
+             

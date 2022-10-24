@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
     <style>
+        /*Common CSS*/
         body {
             width: 100%;
             height: 100vh;
@@ -75,7 +76,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-
+        /*Main Container*/
         .container {
             position: relative;
             background-image: url("WorldMap.png");
@@ -89,6 +90,7 @@
             margin-top: auto;
             margin-bottom: auto;
         }
+        /*Styles specific to this feature*/
         .bottom-left {
             position: absolute;
         }
@@ -101,10 +103,12 @@
             width: 4.5%;
             float: left;
         }
+        /*Hover Highlight*/
         .container1:hover {
             background-color: yellow;
             opacity: 0.3;
         }
+        /*For UTC Time*/
         .bottom-left {
             position: absolute;
             bottom: 20px;

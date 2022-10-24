@@ -5,4 +5,4 @@ Jareds Parts:
 index.jsp, World_time_clock.jsp, timezone_converter.jsp.
 
 Fernaldy:
-calendar.jsp
+calendar.jsp and website settings

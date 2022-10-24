@@ -9,13 +9,13 @@ trigger:
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '592c0d11-6e3d-42b7-a48d-b5c6343f17f7'
+  azureSubscription: '52e61bf4-4d67-42c8-a6c7-4b224d442660'
 
   # Web app name
-  webAppName: 'JSPTimezoneConverter'
+  webAppName: 'TimeZoneConverterDemo'
 
   # Environment name
-  environmentName: 'JSPTimezoneConverter'
+  environmentName: 'TimeZoneConverterDemo'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -24,25 +24,33 @@ stages:
 - stage: Build
   displayName: Build stage
   jobs:
-  - job: MavenPackageAndPublishArtifacts
-    displayName: Maven Package and Publish Artifacts
+  - job: Build
+    displayName: Build
     pool:
       vmImage: $(vmImageName)
 
     steps:
-    - task: Maven@3
-      displayName: 'Maven Package'
+    - task: NodeTool@0
+      displayName: 'Install Node.js'
       inputs:
-        mavenPomFile: 'MyWebApp/pom.xml'
+        versionSpec: '16.x'
+    
+    - script: |
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+      displayName: 'npm install, build and test' 
 
-    - task: CopyFiles@2
-      displayName: 'Copy Files to artifact staging directory'
+    - task: ArchiveFiles@2
+      displayName: 'Archive Files'
       inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
-        Contents: '**/target/*.?(war|jar)'
-        TargetFolder: $(Build.ArtifactStagingDirectory)
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+        includeRootFolder: false
+        archiveType: zip
+        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+        replaceExistingArchive: true
 
-    - upload: $(Build.ArtifactStagingDirectory)
+    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       artifact: drop
 
 - stage: Deploy
@@ -50,8 +58,8 @@ stages:
   dependsOn: Build
   condition: succeeded()
   jobs:
-  - deployment: DeployLinuxWebApp
-    displayName: Deploy Linux Web App
+  - deployment: Deploy
+    displayName: Deploy
     environment: $(environmentName)
     pool:
       vmImage: $(vmImageName)
@@ -60,9 +68,10 @@ stages:
         deploy:
           steps:
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: JSPTimezoneConverter'
+            displayName: 'Azure Web App Deploy: TimeZoneConverterDemo'
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
               appName: $(webAppName)
-              package: '$(Pipeline.Workspace)/drop/**/target/*.?(war|jar)'
+              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+              startUpCommand: 'npm run start'

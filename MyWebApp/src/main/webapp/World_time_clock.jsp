@@ -86,7 +86,7 @@
 
 
 
-            
+
         </style>
         <script type="text/javascript" src="js/script.js"></script>
     </head>
@@ -95,7 +95,8 @@
         <li><a href="index.jsp">Home</a></li>
         <li><a href="World_time_clock.jsp">World Time Clock</a></li>
         <li><a href="calendar.jsp">Calendar</a></li>
-        <li><a href="calendar.jsp">Calendar</a></li>
+        <li><a href="Graph.jsp">Time Graph</a></li>
+        <li><a href="WorldMap.jsp">World Map</a></li>
     </ul>
     <body class = "overflow-hidden">
 

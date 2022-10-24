@@ -29,7 +29,7 @@
                 font-size: 16px;
             }
 
-            h1, p, h2, a, h3 {
+            h1, p, h2 {
                 margin: 1em auto;
                 text-align: center;
             }
@@ -85,6 +85,8 @@
             }
 
 
+
+            
         </style>
         <script type="text/javascript" src="js/script.js"></script>
     </head>
@@ -92,6 +94,7 @@
     <ul>
         <li><a href="index.jsp">Home</a></li>
         <li><a href="World_time_clock.jsp">World Time Clock</a></li>
+        <li><a href="calendar.jsp">Calendar</a></li>
         <li><a href="calendar.jsp">Calendar</a></li>
     </ul>
     <body class = "overflow-hidden">

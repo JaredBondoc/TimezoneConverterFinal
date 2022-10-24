@@ -1,0 +1,7 @@
+{
+    "livePreview.defaultPreviewPath": "c:\\Users\\Asus ROG Gaming\\Documents\\TimeZone\\TimezoneConverterFinal\\MyWebApp\\src\\main\\webapp\\Graph.jsp",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ]
+}
